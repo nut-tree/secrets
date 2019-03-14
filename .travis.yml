@@ -10,5 +10,12 @@ addons:
     token:
       secure: "k/5pLnLpd9eF56LB8Qag+BYmcbv7lGW8393LWy2Oyu8ne6CAWz2LybEcSjKDoEPHd1nwYH7XOSfOOJ//+3O3oAKNcDCDXi4wk7QPDrROCZFIysuyx6kmTIavQQ+9atqKAj16GA4Mp2IHfwWAS+U5R6lUZejU6Lzm3BdN8JOzf29YapqdUm6MP79w2mbAaA8hSAglc0pOSuWEcytJJ+0b7JOSMhYhwGJFnh+tuJX4b41B9al1Sdk/OV0oQJERJZ6NCBUE0V2+620rU0QzngJrioWixq+moT7hJmdidz8n0YK9OGdMnJ7LePaQJcBVJQbCWt6bIIpKMBl46rJAVFenE9mO7fi6A0BHQpS5r7UqqV0y8kOl8FxxgvVsrozD2LrEMn/+16FwzjkKAfCx9iH2b6FAEMvn9UAZSyTukhsVFeRZw1vbvfLhiRGM5hUOIcX2GrARPTPparWg59vKmgSNB3NOLxSEKf3ApoNcYfiqwX4QQolULMc/VMxNQL1iBlB+/xodkrRqQIb0B5Bn29MVVYhQOTayjGlFB3iiUGFHFwQORZjs0kzi348T9EIEK82/2IphJiFVAsI6f3i5GrB56fPQC54Ty5YU5vmino7/jkrEDWSFaHWJU7sA49eQXHQA+rqKrC7XneKCXnPXwJWScjxLMB4WP0kGO05D6JFumuQ="
 
+install:
+  - npm ci
+
+script:
+  - npm run compile
+  - npm run coverage
+
 after_success:
 - sonar-scanner
