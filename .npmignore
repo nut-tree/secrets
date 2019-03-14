@@ -1,0 +1,7 @@
+/lib
+tsconfig.json
+tslint.json
+.travis.yml
+.vscode
+.idea
+.github

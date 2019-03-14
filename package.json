@@ -1,0 +1,35 @@
+{
+  "name": "@nut-tree/secrets",
+  "version": "1.0.0",
+  "description": "A helper package to deal with secrets inside test cases",
+  "main": "dist/index",
+  "typings": "dist/index",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "npm run clean && tsc -p .",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "tslint -p tsconfig.json",
+    "watch": "tsc -w -p .",
+    "prepublishOnly": "npm run compile && npm test",
+    "versionBump": "bump --tag --push --all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nut-tree/secrets.git"
+  },
+  "author": "Simon Hofmann <dev@simon-hofmann.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nut-tree/secrets/issues"
+  },
+  "homepage": "https://github.com/nut-tree/secrets#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.3",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
+  }
+}
