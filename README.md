@@ -1,4 +1,4 @@
-# nut-tree/secrets [![Build Status](https://travis-ci.com/nut-tree/secrets.svg?branch=master)](https://travis-ci.com/nut-tree/secrets) [![SonarCloud badge](https://sonarcloud.io/api/project_badges/measure?project=nut-tree_secrets&metric=alert_status)](https://sonarcloud.io/dashboard?id=nut-tree_secrets) [![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=nut-tree_secrets&metric=coverage)](https://sonarcloud.io/component_measures?id=nut-tree_secrets&metric=coverage)
+# nut-tree/secrets [![Build Status](https://travis-ci.com/nut-tree/secrets.svg?branch=master)](https://travis-ci.com/nut-tree/secrets) [![SonarCloud badge](https://sonarcloud.io/api/project_badges/measure?project=nut-tree_secrets&metric=alert_status)](https://sonarcloud.io/dashboard?id=nut-tree_secrets) [![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=nut-tree_secrets&metric=coverage)](https://sonarcloud.io/component_measures?id=nut-tree_secrets&metric=coverage) [![Greenkeeper badge](https://badges.greenkeeper.io/nut-tree/secrets.svg)](https://greenkeeper.io/)
 
 ## A utility package to handle secrets in test cases.
 
