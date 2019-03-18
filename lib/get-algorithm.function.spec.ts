@@ -1,3 +1,4 @@
+import {Algorithm} from "./algorithm.const";
 import {getAlgorithm} from "./get-algorithm.function";
 
 describe("get-algorithm", () => {
@@ -9,7 +10,7 @@ describe("get-algorithm", () => {
         const result = getAlgorithm(base64Key);
 
         // THEN
-        expect(result.cipher).toBe("aes-128-cbc");
+        expect(result.cipher).toBe(Algorithm.AES128CBC);
     });
 
     it("should return aes-256-cbc for 32 bytes keylength", () => {
@@ -20,6 +21,6 @@ describe("get-algorithm", () => {
         const result = getAlgorithm(base64Key);
 
         // THEN
-        expect(result.cipher).toBe("aes-256-cbc");
+        expect(result.cipher).toBe(Algorithm.AES256CBC);
     });
 });
