@@ -1,6 +1,6 @@
 {
   "name": "@nut-tree/secrets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A helper package to deal with secrets inside test cases",
   "main": "dist/index",
   "typings": "dist/index",
@@ -12,7 +12,7 @@
     "lint": "tslint -p tsconfig.json",
     "watch": "tsc -w -p .",
     "prepublishOnly": "npm run compile && npm test",
-    "versionBump": "bump --tag --push --all"
+    "versionBump": "bump prompt --commit --tag --push --all"
   },
   "repository": {
     "type": "git",
