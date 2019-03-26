@@ -7,10 +7,16 @@ describe("secret", () => {
         const input = "LAe8iDYgcIu/TUFaRSeJibKRE7L0gV2Bd8QC976qRqgSQ+cvPoXG/dU+6aS5+tXC";
         const expected = "Can you keep a secret?";
 
-        // WHEN
-        const output = await decrypt(input, key);
+        // THEN
+        expect(decrypt(input, key)).resolves.toBe(expected);
+    });
+
+    it("should throw an error when IV size is invalid", async () => {
+        // GIVEN
+        const key = "C9HikSYQW/K+ZvRphxEuSw==";
+        const input = "Zm9vCg==";
 
         // THEN
-        expect(output).toBe(expected);
+        expect(decrypt(input, key)).rejects.toThrowError("Invalid IV size. Size of 16 byte required.");
     });
 });

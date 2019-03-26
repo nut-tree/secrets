@@ -23,4 +23,21 @@ describe("get-algorithm", () => {
         // THEN
         expect(result.cipher).toBe(Algorithm.AES256CBC);
     });
+
+    it("should throw new Invalid key length, key too short", () => {
+        // GIVEN
+        const base64Key = "TIzNDU2Nzg5MTAxMTEyCg==";
+
+        // THEN
+        expect(() => getAlgorithm(base64Key)).toThrow(new Error("Invalid key length: 15"));
+    });
+
+    it("should throw new Invalid key length, key too long", () => {
+        // GIVEN
+        const base64Key = "CCTIzNDU2Nzg5MTAxMTEyCg==";
+
+        // THEN
+        expect(() => getAlgorithm(base64Key)).toThrow(new Error("Invalid key length: 17"));
+    });
+
 });
