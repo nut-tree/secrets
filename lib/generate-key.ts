@@ -1,4 +1,4 @@
-import {Algorithm} from "./algorithm.const";
+import {Algorithm} from "./algorithm.enum";
 import {generateRandom} from "./random.function";
 
 export const getKeyLength = (algorithm: Algorithm): { keyLength: number } => {

@@ -1,4 +1,4 @@
-import {Algorithm} from "./algorithm.const";
+import {Algorithm} from "./algorithm.enum";
 import {getAlgorithm} from "./get-algorithm.function";
 
 describe("get-algorithm", () => {
