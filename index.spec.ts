@@ -1,5 +1,5 @@
 import {secret} from "./index";
-import {Algorithm} from "./lib/algorithm.const";
+import {Algorithm} from "./lib/algorithm.enum";
 
 describe("secret", () => {
     it("should return the initial input when passing encrypt to decrypt", async () => {

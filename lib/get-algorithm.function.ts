@@ -1,4 +1,4 @@
-import {Algorithm} from "./algorithm.const";
+import {Algorithm} from "./algorithm.enum";
 
 export const getAlgorithm = (keyBase64: string): { cipher: string, blockSize: number } => {
     const key = Buffer.from(keyBase64, "base64");

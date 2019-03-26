@@ -1,4 +1,4 @@
-import {Algorithm} from "./algorithm.const";
+import {Algorithm} from "./algorithm.enum";
 import {generateKey, getKeyLength} from "./generate-key";
 
 describe("getKeyLength", () => {

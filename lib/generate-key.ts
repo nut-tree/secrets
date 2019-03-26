@@ -1,7 +1,7 @@
-import {Algorithm} from "./algorithm.const";
+import {Algorithm} from "./algorithm.enum";
 import {generateRandom} from "./random.function";
 
-export const getKeyLength = (algorithm: string): { keyLength: number } => {
+export const getKeyLength = (algorithm: Algorithm): { keyLength: number } => {
     switch (algorithm) {
         case Algorithm.AES128CBC:
             return ({
@@ -15,7 +15,7 @@ export const getKeyLength = (algorithm: string): { keyLength: number } => {
     throw new Error("Not (yet) supported algorithm: " + algorithm);
 };
 
-export const generateKey = async (algorithm: string): Promise<string> => {
+export const generateKey = async (algorithm: Algorithm): Promise<string> => {
     const keyLength = getKeyLength(algorithm);
 
     const randomKey = await generateRandom({byteLength: keyLength.keyLength});
