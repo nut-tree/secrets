@@ -1,6 +1,6 @@
 {
   "name": "@nut-tree/secrets",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A helper package to deal with secrets inside test cases",
   "main": "dist/index",
   "typings": "dist/index",
