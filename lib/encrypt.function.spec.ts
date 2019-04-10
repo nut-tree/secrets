@@ -1,3 +1,4 @@
+import {Algorithm} from "./algorithm.enum";
 import {encrypt} from "./encrypt.function";
 
 describe("secret", () => {
@@ -9,6 +10,6 @@ describe("secret", () => {
         // WHEN
 
         // THEN
-        await expect(() => encrypt(input, key)).not.toThrow();
+        await expect(() => encrypt(input, key, Algorithm.AES128CBC)).not.toThrow();
     });
 });
