@@ -1,24 +1,49 @@
 import * as crypto from "crypto";
+import {Algorithm} from "./algorithm.enum";
 import {base64EncodedBufferFromString} from "./buffer.function";
-import {getAlgorithm} from "./get-algorithm.function";
+import {CipherSpec, getCipherSpec} from "./get-cipher-spec.function";
 
-export const decrypt = async (encrypted: string, secret: string) => {
-    const cipherSpec = getAlgorithm(secret);
-    const key = base64EncodedBufferFromString(secret);
-    const plainInput = base64EncodedBufferFromString(encrypted);
+interface DecryptInput {
+    iv: Buffer;
+    content: Buffer;
+}
 
-    if (plainInput.length < cipherSpec.blockSize) {
-        throw new Error(`Invalid IV size. Size of ${cipherSpec.blockSize} byte required.`);
-    }
-
+const sliceInput = (plainInput: Buffer, cipherSpec: CipherSpec): DecryptInput => {
     const iv = plainInput.slice(0, cipherSpec.blockSize);
     const content = plainInput.slice(cipherSpec.blockSize);
 
-    const decipher = crypto.createDecipheriv(
-        cipherSpec.cipher,
-        key,
+    return ({
+        content,
         iv
-    );
-    const part = decipher.update(content).toString("utf8");
+    });
+};
+
+export const decrypt = async (encrypted: string, secret: string, algorithm: Algorithm, useIV: boolean = true) => {
+    const cipherSpec = getCipherSpec(algorithm);
+    const key = base64EncodedBufferFromString(secret);
+    const plainInput = base64EncodedBufferFromString(encrypted);
+
+    if (useIV && plainInput.length < cipherSpec.blockSize) {
+        throw new Error(`Invalid IV size. Size of ${cipherSpec.blockSize} byte required.`);
+    }
+
+    let decipher: crypto.Decipher;
+    let data: DecryptInput;
+    if (useIV) {
+        data = sliceInput(plainInput, cipherSpec);
+
+        decipher = crypto.createDecipheriv(
+            algorithm,
+            key,
+            data.iv
+        );
+    } else {
+        data = {iv: Buffer.alloc(0), content: plainInput};
+        decipher = crypto.createDecipher(
+            algorithm,
+            key
+        );
+    }
+    const part = decipher.update(data.content).toString("utf8");
     return part + decipher.final("utf8");
 };
