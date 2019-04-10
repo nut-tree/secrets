@@ -22,14 +22,14 @@ describe("getCipherSpec", () => {
         expect(result.blockSize).toBe(16);
     });
 
-    it("should return 16 bytes blocksize for AES256ECB", () => {
+    it("should return 16 bytes blocksize for AES128ECB", () => {
         // GIVEN
 
         // WHEN
         const result = getCipherSpec(Algorithm.AES128ECB);
 
         // THEN
-        expect(result.blockSize).toBe(16);
+        expect(result.blockSize).toBe(0);
     });
 
     it("should return 16 bytes blocksize for AES256ECB", () => {
@@ -39,6 +39,6 @@ describe("getCipherSpec", () => {
         const result = getCipherSpec(Algorithm.AES256ECB);
 
         // THEN
-        expect(result.blockSize).toBe(16);
+        expect(result.blockSize).toBe(0);
     });
 });
