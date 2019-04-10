@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.0.0
+
+- Added support for AES/ECB ([#11](https://github.com/nut-tree/secrets/issues/11))
+
 ## 3.0.0
 
 - `secrets` now exports an `Algorithm` enum which contains supported encryption algorithms ([#3](https://github.com/nut-tree/secrets/issues/3), by [@m-kappes](https://github.com/m-kappes))
