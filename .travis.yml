@@ -22,7 +22,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    skip_cleanup: false
+    skip_cleanup: true
     script: npm publish
     on:
       tags: true
