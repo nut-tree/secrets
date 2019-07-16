@@ -12,7 +12,7 @@
     "lint": "tslint -p tsconfig.json",
     "watch": "tsc -w -p .",
     "prepublishOnly": "npm run compile && npm test",
-    "versionBump": "bump --prompt --commit --tag --push --all"
+    "versionBump": "bump prompt --commit --tag --push --all"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "jest": "^24.5.0",
     "ts-jest": "24.0.2",
     "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "version-bump-prompt": "^5.0.4"
   }
 }
