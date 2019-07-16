@@ -17,5 +17,15 @@ script:
   - npm run compile
   - npm run coverage
 
+before_deploy:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+
+deploy:
+  - provider: script
+    skip_cleanup: false
+    script: npm publish
+    on:
+      tags: true
+
 after_success:
 - sonar-scanner
