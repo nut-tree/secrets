@@ -1,4 +1,4 @@
-import * as crypto from "crypto";
+import {createDecipher, createDecipheriv, Decipher} from "crypto";
 import {Algorithm} from "./algorithm.enum";
 import {base64EncodedBufferFromString} from "./buffer.function";
 import {CipherSpec, getCipherSpec} from "./get-cipher-spec.function";
@@ -27,19 +27,19 @@ export const decrypt = async (encrypted: string, secret: string, algorithm: Algo
         throw new Error(`Invalid IV size. Size of ${cipherSpec.blockSize} byte required.`);
     }
 
-    let decipher: crypto.Decipher;
+    let decipher: Decipher;
     let data: DecryptInput;
     if (useIV) {
         data = sliceInput(plainInput, cipherSpec);
 
-        decipher = crypto.createDecipheriv(
+        decipher = createDecipheriv(
             algorithm,
             key,
             data.iv
         );
     } else {
         data = {iv: Buffer.alloc(0), content: plainInput};
-        decipher = crypto.createDecipher(
+        decipher = createDecipher(
             algorithm,
             key
         );

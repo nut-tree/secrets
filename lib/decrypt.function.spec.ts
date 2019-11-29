@@ -9,7 +9,7 @@ describe("secret", () => {
         const expected = "Can you keep a secret?";
 
         // THEN
-        expect(decrypt(input, key, Algorithm.AES128CBC)).resolves.toBe(expected);
+        await expect(decrypt(input, key, Algorithm.AES128CBC)).resolves.toBe(expected);
     });
 
     it("should throw an error when IV size is invalid", async () => {
@@ -18,7 +18,7 @@ describe("secret", () => {
         const input = "Zm9vCg==";
 
         // THEN
-        expect(decrypt(input, key, Algorithm.AES128CBC))
+        await expect(decrypt(input, key, Algorithm.AES128CBC))
             .rejects.toThrowError("Invalid IV size. Size of 16 byte required.");
     });
 });
