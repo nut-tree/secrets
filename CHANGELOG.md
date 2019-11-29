@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.0.2
+
+- Fixed deprecation warnings ([#13](https://github.com/nut-tree/secrets/issues/13))
+
+## 4.0.1
+
+- Security fixes 
+
 ## 4.0.0
 
 - Added support for AES/ECB ([#11](https://github.com/nut-tree/secrets/issues/11))
